@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="Left">
   <br>
   <img src="./img/hei-en.png" alt="HEI-Vs Logo" width="350">
   <br>
@@ -10,7 +10,7 @@ Cours AutB
 
 Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
 
-# LAB-03-AutB-Function-Block, Sensor
+# LAB 03 A complete function block for a sensor
 
 Dans ce travail, nous allons construire deux blocs fonctionnels complets, l'un pour un détecteur, le deuxième pour un actuateur simple, un gripper, ou pince.
 
