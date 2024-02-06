@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbolconfiguration xmlns="http://www.3s-software.com/schemas/Symbolconfiguration.xsd">
+  <Header>
+    <Version>3.5.14.0</Version>
+    <SymbolConfigObject version="4.1.0.0" runtimeid="3.5.17.40" libversion="4.1.0.0" compiler="3.5.17.40" lmm="3.5.17.0" profile="ctrlX PLC 1.16.1+" settings="SupportOPCUA, IncludeExecutables, XmlIncludeNodeFlags, XmlIncludeComments, XmlIncludeExecutables, LayoutCalculator=OptimizedClientSideLayoutCalculator" />
+    <ProjectInfo name="AutBoxInterfaceOpcUa_PW03_Solution" devicename="ctrlx_CORE" appname="BaseInterfaceUa" />
+  </Header>
+  <TypeList>
+    <TypeSimple name="T_BOOL" size="1" swapsize="0" typeclass="Bool" iecname="BOOL" />
+    <TypeSimple name="T_DINT" size="4" swapsize="4" typeclass="DInt" iecname="DINT" />
+    <TypeSimple name="T_DWORD" size="4" swapsize="4" typeclass="DWord" iecname="DWORD" />
+    <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
+    <TypeSimple name="T_SINT" size="1" swapsize="1" typeclass="SInt" iecname="SINT" />
+    <TypeSimple name="T_WORD" size="2" swapsize="2" typeclass="Word" iecname="WORD" />
+  </TypeList>
+  <NodeList>
+    <Node name="BaseInterfaceUa" nodeflags="NodeTypeBranchNode BranchNodeApplicationName">
+      <Node name="PLC_PRG" nodeflags="NodeTypeBranchNode SigTypeProgram">
+        <Comment>
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_03
+	Author:		Cedric Lenoir
+	Date:		2024 January 23
+	
+	Summary:	Main program for Practical Work 03.
+</Comment>
+        <Node name="diMyLoop" nodeflags="SigTypeProgram ExportedVariable" type="T_DINT" access="ReadWrite" />
+      </Node>
+      <Node name="PRG_MapBox" nodeflags="NodeTypeBranchNode SigTypeProgram">
+        <Node name="UA_Balluf_bcm0002_Data_1" nodeflags="SigTypeProgram ExportedVariable" type="T_REAL" access="ReadWrite" />
+        <Node name="UA_Balluf_bcm0002_Data_2" nodeflags="SigTypeProgram ExportedVariable" type="T_REAL" access="ReadWrite" />
+        <Node name="UA_Balluf_bcm0002_Data_3" nodeflags="SigTypeProgram ExportedVariable" type="T_REAL" access="ReadWrite" />
+        <Node name="UA_Balluf_bcm0002_Status" nodeflags="SigTypeProgram ExportedVariable" type="T_DWORD" access="ReadWrite" />
+        <Node name="UA_Balluf_bcm0002_Temperature" nodeflags="SigTypeProgram ExportedVariable" type="T_REAL" access="ReadWrite" />
+        <Node name="UA_ButtonAndSignal_In_Estop" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_ButtonAndSignal_In_Reset" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_ButtonAndSignal_In_Start" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_ButtonAndSignal_In_Stop" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_ButtonAndSignal_Out_Execute" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_ButtonAndSignal_Out_Idle" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_ButtonAndSignal_Out_Stopped" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_0_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_1_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_2_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalInput_32_Input_3_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_0_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_1_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_2_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_0" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_3" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_5" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_6" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_DigitalOutput_32_Output_3_7" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_Festo_SetOut" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_O300_DL_A" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_O300_DL_BCD1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_O300_DL_Q" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_O300_DL_Value" nodeflags="SigTypeProgram ExportedVariable" type="T_WORD" access="ReadWrite" />
+        <Node name="UA_O300_ZL_A" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_O300_ZL_BCD1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_O300_ZL_Q" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_ReadCounterFromStation" nodeflags="SigTypeProgram ExportedVariable" type="T_DINT" access="ReadWrite">
+          <Comment>
+	Write from Siemens to ctrX Core
+
+ Used to check if read is running</Comment>
+        </Node>
+        <Node name="UA_Schunk_mms_Value" nodeflags="SigTypeProgram ExportedVariable" type="T_WORD" access="ReadWrite" />
+        <Node name="UA_U300_D50_A" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_D50_Q" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_D50_Scale" nodeflags="SigTypeProgram ExportedVariable" type="T_SINT" access="ReadWrite" />
+        <Node name="UA_U300_D50_SSC1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_D50_SSC2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_D50_SSC4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_D50_Value" nodeflags="SigTypeProgram ExportedVariable" type="T_DWORD" access="ReadWrite" />
+        <Node name="UA_U300_P50_A" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_P50_Q" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_P50_Scale" nodeflags="SigTypeProgram ExportedVariable" type="T_SINT" access="ReadWrite" />
+        <Node name="UA_U300_P50_SSC1" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_P50_SSC2" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_P50_SSC4" nodeflags="SigTypeProgram ExportedVariable" type="T_BOOL" access="ReadWrite" />
+        <Node name="UA_U300_P50_Value" nodeflags="SigTypeProgram ExportedVariable" type="T_DWORD" access="ReadWrite" />
+        <Node name="UA_WriteCounterToStation" nodeflags="SigTypeProgram ExportedVariable" type="T_DINT" access="ReadWrite">
+          <Comment>
+	Siemens Read from ctrX Core
+
+ Used to check if write is running</Comment>
+        </Node>
+      </Node>
+    </Node>
+  </NodeList>
+</Symbolconfiguration>

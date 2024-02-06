@@ -1,0 +1,52 @@
+@startuml
+
+[*] --> Idle
+Idle --> Init : Enable①
+note left of Idle
+    InOperation := FALSE
+    Error := FALSE
+end note
+
+Init --> Idle : Enable⓪
+Init --> Error : SetError
+Init --> InOpLevelOk
+Init --> InOpLevelLow
+Init --> InOpLevelHigh
+note right of Init
+    InOperation := FALSE
+    Error := FALSE
+end note
+
+InOpLevelOk --> Idle : Enable⓪
+InOpLevelOk --> Error : SetError
+InOpLevelOk --> InOpLevelLow
+InOpLevelOk --> InOpLevelHigh
+note right of InOpLevelOk
+    InOperation := TRUE
+    Error := FALSE
+end note
+
+InOpLevelLow --> Idle : Enable⓪
+InOpLevelLow --> Error : SetError
+InOpLevelLow --> InOpLevelOk
+note right of InOpLevelLow
+    InOperation := TRUE
+    Error := FALSE
+end note
+
+InOpLevelHigh --> Idle : Enable⓪
+InOpLevelHigh --> Error : SetError
+InOpLevelHigh --> InOpLevelOk
+note right of InOpLevelHigh
+    InOperation := TRUE
+    Error := FALSE
+end note
+
+Error --> Idle : Enable⓪
+note left of Error
+    InOperation := FALSE
+    Error := TRUE
+end note
+
+
+@enduml
