@@ -7,9 +7,9 @@
   "Solution": "DefaultSolution",
   "ControllerGuid": "6acb2e0b-bf91-4459-95d4-07149e667294",
   "LastChange": 638346155690968673,
-  "MachineName": "WE2341102",
+  "MachineName": "WE2341105",
   "UserName": "cedric.lenoir",
-  "ProjectCompleteFilename": "C:\\Users\\cedric.lenoir\\Documents\\ctrlX Core\\GIT_Programs\\lab-03-autb-function-block\\PracticalWork_03_Solution\\AutBoxInterfaceOpcUa_PW03_Solution.project",
+  "ProjectCompleteFilename": "C:\\Users\\cedric.lenoir\\Documents\\AutB\\autb-lab-03\\PracticalWork_03_Solution\\AutBoxInterfaceOpcUa_PW03_Solution.project",
   "CompilerVersion": {
     "Major": 3,
     "Minor": 5,
@@ -39,6 +39,11 @@
       "MachineName": "WE7845",
       "UserName": "cedric.lenoir",
       "ProjectCompleteFilename": "C:\\Users\\cedric.lenoir\\Documents\\GIT_AutomationBaseModules\\lab-03-autb-function-block\\PracticalWork_03_Solution\\AutBoxInterfaceOpcUa_PW03_Solution.project"
+    },
+    "WE2341105:cedric.lenoir": {
+      "MachineName": "WE2341105",
+      "UserName": "cedric.lenoir",
+      "ProjectCompleteFilename": "C:\\Users\\cedric.lenoir\\Documents\\AutB\\autb-lab-03\\PracticalWork_03_Solution\\AutBoxInterfaceOpcUa_PW03_Solution.project"
     }
   },
   "SyncDescription": false,
