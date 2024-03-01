@@ -12,20 +12,13 @@ Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
 
 # LAB 03 A complete function block for a sensor
 
-Dans ce travail, nous allons construire deux blocs fonctionnels complets, l'un pour un détecteur, le deuxième pour un actuateur simple, un gripper, ou pince.
+Dans ce travail, nous allons construire un blocs fonctionnel complet pour un détecteur.
+
+> Dans la plupart des IDE, dont ctrlX PLC, il existe la possibilité de créer des librairies de fonctions, types ou blocs fonctionnels. Nous n'abordons pas le sujet.
 
 Avec un système de programmation empirique on pourrait se dire que tout ce dont nous avons besoin pour un capteur, c'est une entrée analogique ou digitale, donc en fin de compte, un ``REAL`` ou un ``BOOL``.
 
 Dans la pratique, une simple entrée ou sortie sera entourée d'une logique qui permettra de la mettre en forme et de la valider. Afin d'éviter de réécrire la même logique pour chaque entrée et chaque sortie, nous allons encapsuler l'ensemble dans un bloc. Le Bloc fonctionnel.
-
-# Commentaires de rédaction.
-Il faudra voir à la fin de la rédaction si il faut "Splitter ce TP en Sensor et Actuator".
-
-Encore à réfléchir, mais deux FB complets
-
-Au pire, si robust programming n'est pas vu, on indique comment on fait et la théorie suivra la pratique.
-
-Ce serait bien de proposer un canevas pour Enable et Execute, qui seront vus ou pas dans Robust Programming.
 
 # Sensor
 Dans le cadre de ce travail pratique, nous utilisons un capteur laser d'origine Baumer.
@@ -132,17 +125,32 @@ Nous allons coder un Function Block qui lit les données synchrone du capteur. L
 
 ## Description du Function Block
 
+> Le Function Bloc a créer dans le répertoire PW_POU, *rigth click add object...*
+> Les types à créer dans le répertoire PW_DUT, *rigth click add object...*
+
+### Name
+FB_O300_DL
+
+
 ### Input
 
 |Name   |Type       |Description|
 |-------|-----------|-----------|
-|Device |UA_O300_DL |In the particular context of the ctrlX to S7 interface.|
 |Enable	|BOOL	    |Activate Function Block, set data value in output if valid.|
+|Other  |ANY        |[See below](#comportement-du-function-block)
+
+### In Out
+|Name   |Type       |Description|
+|-------|-----------|-----------|
+|hw |UA_O300_DL |In the particular context of the ctrlX to S7 interface.|
+
 
 ### Output
 |Name         |Type         |Description         |
 |-------------|:------------|--------------------|
 |InOperation	|BOOL	        |Valid data at output|
+|Value	|REAL	        |Distance from object in mm|
+|Other  |ANY        |[See below](#comportement-du-function-block)
 |Error	      |BOOL	        |There is an error   |
 |ErrorID	    |WORD         |Some details about the error with Error Code.|
 
@@ -151,6 +159,7 @@ Nous allons coder un Function Block qui lit les données synchrone du capteur. L
 |16#0000      |Data valid |
 |16#0001      |Quality bit, signal is below the configured threshold.|
 |16#0002      |Alarm bit, signal an error in sensor, this alarm has priority over ID 16#0001|
+|16#0003      |Id not defined|
 
 # Comportement du Function Block
 
@@ -170,7 +179,7 @@ Dans le cas qui nous intéresse, nous voulons obtenir deux informations supplém
 |Name         |Type         |Description         |
 |-------------|:------------|--------------------|
 |HighLimit	  |BOOL	        |Valid signal above HighThreshold|
-|LowLimit	    |BOOL	        |Valid signal above LowThreshold |
+|LowLimit	  |BOOL	        |Valid signal above LowThreshold |
 
 On pourrait la représenter ainsi:
 <figure>
@@ -193,11 +202,23 @@ On constate très vite, que même si le nombre d'états est limité, le représe
 ### Conclusion
 Utiliser le diagramme d'état composé, quitte à coder des états simples.
 
-# CFG, Config
-On peut ajouter une structure config en ``VAR_IN_OUT`` qui permettra non seulement de paramétrer le gripper, mais aussi les limites du sensor via le HMI.
+### Sortie en cas de problème
+Selon l'utilisation du capteur, une valeur lue erronée peut poser un problème.
 
-# Les états
-On va imposer les états minimaux pour l'écriture de la machine d'état.
+Dans cet exemple, si la qualité du signal n'est pas correcte ou si nous nous trouvons hors détection, **nous ne voulons surtout pas d'une valeur 0**.
+
+Nous ajoutons une entrée ``DefaultOut`` qui permet de définir une sortie par défaut. Nous testerons le système avec une valeur par défaut à 251, soit un mm de plus que la plage de mesure théorique du capteur.
+
+# Test
+-   Utiliser Prosys OPC UA Monitor pour tester le comportement du capteur.
+-   Utiliser le robot pour déplacer l'axe Z en face du capteur puis l'axe Y pour varier la distance de l'axe Z par rapport au capteur.
+> Utilisez fbO300_DL dans PLC_PRG pour tester votre FB.
+
+<figure>
+    <img src="./img/UseKinematicForTest.png"
+         alt="Lost image : UseKinematicForTest.png">
+    <figcaption>Use Kinematic For Test, 192.168.0.200</figcaption>
+</figure>
 
 # A propos du site Internet IO-Link
 [Site internet général IO-Link](https://io-link.com)
@@ -206,14 +227,7 @@ On va imposer les états minimaux pour l'écriture de la machine d'état.
 
 [Codage IO-Link on PLCopen, IEC61131-9](https://plcopen.org/iec-61131-9)
 
-
-# Notes de fonctionnement du laboratoire
-Si je suis hors champ, Q s'allume , OK
-Distance Max: 285 [mm]
-Distance Min: limitée par la course de Y, environ 157
-Conversion, simple: le DWORD contient des dixièmes de millimètre.
-
-SetPoint
+## SetPoint
 On va inverser le **Switchpoint Logic**.
 L'idée est d'utiliser l'axe Y du robot.
 Si la distance descend en dessous d'un certain seuil, on déclenche une alarme.
@@ -226,3 +240,5 @@ Si la distance descend en dessous d'un certain seuil, on déclenche une alarme.
 
 ## Conclusion
 On peut soit programmer un FB, soit utiliser les valeurs du capteur.
+
+On peut aussi comprendre que pour un simple capteur, le temps de travail n'est pas négligeable, cela montre l'intérêt d'écrire une seule fois un FB robuste que l'on pourra ensuite réutiliser dans plusieurs projets.
