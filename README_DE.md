@@ -16,7 +16,7 @@ In dieser Arbeit werden wir einen vollständigen Funktionsblock für einen Detek
 
 > In den meisten IDEs, einschließlich ctrlX PLC, besteht die Möglichkeit, Bibliotheken von Funktionen, Typen oder Funktionsblöcken zu erstellen. Wir diskutieren das Thema nicht.
 
-Mit einem empirischen Programmiersystem könnten wir sagen, dass alles, was wir für einen Sensor benötigen, ein analoger oder digitaler Eingang ist, also letztendlich ein „REAL“ oder ein „BOOL“.
+Mit einem empirischen Programmiersystem könnten wir sagen, dass alles, was wir für einen Sensor benötigen, ein analoger oder digitaler Eingang ist, also letztendlich ein ``REAL`` oder ein ``BOOL``.
 
 In der Praxis wird eine einfache Eingabe oder Ausgabe von einer Logik umgeben sein, die es ermöglicht, sie zu formatieren und zu validieren. Um zu vermeiden, dass für jeden Eingang und jeden Ausgang dieselbe Logik neu geschrieben wird, werden wir alles in einem Block kapseln. Der Funktionsblock.
 
@@ -86,7 +86,7 @@ Die [vordefinierten Parameter](#io-link-pre-definierte-parameter) werden zur Ide
 |0x0013 (19)| 0             |R      |Product Id| String|Baumer Article Number|
 |0x0014 (20)| 0             |R      |Device Text| String|Sensor specific|
 |0x0015 (21)| 0             |R      |Serial Number| String|Production Order Nr / Serial Nr |
-|0x0017 (23)| 0             |R      |Firmware Revision| String|Major.Minor “##.##”|
+|0x0017 (23)| 0             |R      |Firmware Revision| String|Major.Minor ``##.##”|
 |0x0018 (24)| 0             |R/W    |Application Specific Tag|String| Default: Filled with ******, as recommended by the IO-Link spec.|
 |0x0024 (36)| 0             |R      |Device Status| Uint16| 0: Device is operating properly
 |           |               |       |             |       | 1: Device is operating properly
@@ -94,7 +94,7 @@ Die [vordefinierten Parameter](#io-link-pre-definierte-parameter) werden zur Ide
 |           |               |       |             |       | 3: Functional-Check
 |           |               |       |             |       | 4: Failure
 |           |               |       |             |       | 5 - 255: Reserved|
-|0x0025 (37)| 0             |R      |Detailed Device Status| Uint16| EventQualifier “0x00” EventCode “0x00, 0x00”
+|0x0025 (37)| 0             |R      |Detailed Device Status| Uint16| EventQualifier ``0x00” EventCode ``0x00, 0x00”
 
 ### IO-Link Binary Data Channels
 |Index      |Subindex (dec) |Access |Parameter name| Coding| Definition|
@@ -210,6 +210,20 @@ Abhängig von der Verwendung des Sensors kann ein falscher Messwert zu Problemen
 Wenn in diesem Beispiel die Signalqualität nicht korrekt ist oder wir nicht erkannt werden, **möchten wir definitiv keinen Wert von 0**.
 
 Wir fügen einen ``DefaultOut``-Eintrag hinzu, der es Ihnen ermöglicht, eine Standardausgabe zu definieren. Wir werden das System mit einem Standardwert von 251 testen, was einen mm mehr als der theoretische Messbereich des Sensors ist.
+
+# Schritt für Schritt
+
+Im FB müssen Sie:
+
+- Konvertieren Sie die Eingabegröße ``hw.Value`` in eine temporäre Variable,
+- Erstellen Sie eine Enum ``E_OperationBaseDL``.
+- Erstellen Sie eine Statusvariable ``eOperationBaseDL``, um die ``Enum`` zu verwenden.
+- Schreiben Sie eine ``CASE...OF``-Zustandsmaschine mit den verschiedenen Zuständen und Übergangsbedingungen.
+- Definieren Sie die Ausgänge ``InOperation``, ``HighLimit``, ``LowLimit`` und ``Error``, die nur von den Zuständen abhängen.
+- Definieren Sie die Variable ``ErrorId`` mit den Bedingungen ``IF..ELSIF..ELSE``.
+- Wert mit ``IF..ELSE`` basierend auf InOperation zulassen.
+
+Der ``FB`` wird in ``PLC_PRG`` verwendet und getestet, Einträge wie ``Enable`` werden manuell erzwungen.
 
 # Prüfen
 - Verwenden Sie Prosys OPC UA Monitor, um das Sensorverhalten zu testen.

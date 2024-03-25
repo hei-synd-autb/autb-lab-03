@@ -211,6 +211,20 @@ Dans cet exemple, si la qualité du signal n'est pas correcte ou si nous nous tr
 
 Nous ajoutons une entrée ``DefaultOut`` qui permet de définir une sortie par défaut. Nous testerons le système avec une valeur par défaut à 251, soit un mm de plus que la plage de mesure théorique du capteur.
 
+# Pas à Pas
+
+Dans le FB, il faut:
+
+-   Convertir la grandeur d'entrée ``hw.Value`` dans une variable temporaire,
+-   créer un Enum ``E_OperationBaseDL``
+-   Créer une variable d'état ``eOperationBaseDL`` pour utiliser l'``Enum``.
+-   Ecrire une machine d'état ``CASE...OF`` avec les différents états et les conditions de transition.
+-   Définir les sorties, ``InOperation``, ``HighLimit``, ``LowLimit`` et ``Error`` qui dépendent uniquement des états.
+-   Définir la variable ``ErrorId`` avec des conditions ``IF..ELSIF..ELSE``.
+-   Autoriser la valeur à l'aide de ``IF..ELSE`` en fonction de InOperation.
+
+Le ``FB`` est utilisé et testé dans ``PLC_PRG``, les entrées, telles ``Enable`` seront forcées à la manuellement.  
+
 # Test
 -   Utiliser Prosys OPC UA Monitor pour tester le comportement du capteur.
 -   Utiliser le robot pour déplacer l'axe Z en face du capteur puis l'axe Y pour varier la distance de l'axe Z par rapport au capteur.
