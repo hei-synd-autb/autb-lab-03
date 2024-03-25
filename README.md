@@ -117,7 +117,7 @@ Le logiciel Baumer BSS mentionné est toutefois lié à un type de IO-Link Maste
 Le contenu de ce module est une partie de la réponse au problème du paramétrage du capteur depuis le PLC. Même si nous n'allons pas le faire, le développement d'un Fonction Block, même complexe, pourrait permettre ensuite de paramétrer tous les capteurs d'une installation et être réutilisé pour les futures installation.
 
 # Travail pratique
-Nous allons coder un Function Block qui lit les données synchrone du capteur. Les informations seront ensuite mises en forme et codées pour donner utiliser directement les informations utiles.
+Nous allons coder un Function Block qui lit les données synchrone du capteur. Les informations seront ensuite mises en forme et codées pour utiliser directement les informations utiles.
 
 - Distance, datatype: REAL, unité: mm
 - Erreur de mesure ErrorID Code
@@ -137,6 +137,8 @@ FB_O300_DL
 |Name   |Type       |Description|
 |-------|-----------|-----------|
 |Enable	|BOOL	    |Activate Function Block, set data value in output if valid.|
+|HighThreshold|REAL|Sets upper switching threshold|
+|LowThreshold|REAL|Sets lower switching threshold|
 |Other  |ANY        |[See below](#comportement-du-function-block)
 
 ### In Out

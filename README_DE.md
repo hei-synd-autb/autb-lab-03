@@ -117,7 +117,7 @@ Die erwähnte Baumer BSS-Software ist jedoch mit einer Art IO-Link-Master verkn�
 Der Inhalt dieses Moduls ist Teil der Antwort auf das Problem der Konfiguration des Sensors aus der SPS heraus. Selbst wenn wir dies nicht tun, könnte die Entwicklung eines Funktionsblocks, selbst wenn er komplex ist, es dann ermöglichen, alle Sensoren einer Anlage zu konfigurieren und für zukünftige Anlagen wiederzuverwenden.
 
 # Praktische Arbeit
-Wir werden einen Funktionsblock programmieren, der synchrone Daten vom Sensor liest. Anschließend werden die Informationen formatiert und kodiert, damit die nützlichen Informationen direkt genutzt werden können.
+Wir werden einen Funktionsblock programmieren, der synchrone Daten vom Sensor liest. Die Informationen werden dann formatiert und codiert, um die nützlichen Informationen direkt zu verwenden.
 
 - Abstand, Datentyp: REAL, Einheit: mm
 - Messfehler ErrorID-Code
@@ -137,6 +137,8 @@ FB_O300_DL
 |Name   |Type       |Description|
 |-------|-----------|-----------|
 |Enable	|BOOL	    |Activate Function Block, set data value in output if valid.|
+|HighThreshold|REAL|Sets upper switching threshold|
+|LowThreshold|REAL|Sets lower switching threshold|
 |Other  |ANY        |[See below](#comportement-du-function-block)
 
 ### In Out
