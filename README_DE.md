@@ -236,6 +236,12 @@ Der ``FB`` wird in ``PLC_PRG`` verwendet und getestet, Einträge wie ``Enable`` 
     <figcaption>Use Kinematic For Test, 192.168.0.200</figcaption>
 </figure>
 
+<figure>
+    <img src="./img/ProsysTestScreen.png"
+         alt="Lost image : ProsysTestScreen.png">
+    <figcaption>Example of HMI Test Screen</figcaption>
+</figure>
+
 # Über die IO-Link-Website
 [Site internet général IO-Link](https://io-link.com)
 
